@@ -69,7 +69,7 @@ def predict():
     # 11. Filter the precaution based on the predicted disease
     filtered_precaution = filter(lambda disease: disease['Disease'] == predicted_disease, disease_precaution)
     filtered_precaution = list(filtered_precaution)[0]
-    filtered_precaution = [x[1] for x in filtered_precaution.items() if x != 0 and x[0] != 'Disease']
+    filtered_precaution = [x[1] for x in filtered_precaution.items() if x[0] != 'Disease' and x[1] != 0]
 
     # 12. Store the results as json
     results = {
@@ -78,6 +78,7 @@ def predict():
         'Description': filtered_desc,
         'Precaution': filtered_precaution
     }
+    
     # 13. Return the results
     return jsonify(results)
 

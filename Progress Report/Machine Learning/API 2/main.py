@@ -14,7 +14,7 @@ model_path = '../saved_model/my_model'
 model = keras.models.load_model(model_path)
 
 @app.route('/')
-def home():
+def index():
     return '''
     Symptoms Based Disease Prediction Public API built by Kreasi Anak Bangsa team from Bangkit 2021.
     '''

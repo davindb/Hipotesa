@@ -1,4 +1,4 @@
-from flask.helpers import url_for
+from flask.helpers import make_response, url_for
 from flask.json import jsonify
 from flask.templating import render_template
 import numpy as np
@@ -19,7 +19,7 @@ def home():
     Symptoms Based Disease Prediction Public API built by Kreasi Anak Bangsa team from Bangkit 2021.
     '''
 
-@app.route('/DiseasePredict', methods = ['POST'])
+@app.route('/predict', methods = ['POST'])
 def predict():
     # 1. Retrieve the data from users as json
     data = request.get_json()
@@ -56,7 +56,6 @@ def predict():
     disease_index = disease_index[0][0]
 
     # 8. Find the disease based on the disease index
-    print(disease_index)
     predicted_disease = diseases_list[disease_index]
 
     # 9. The probability percentage
@@ -78,7 +77,7 @@ def predict():
         'Description': filtered_desc,
         'Precaution': filtered_precaution
     }
-    
+
     # 13. Return the results
     return jsonify(results)
 

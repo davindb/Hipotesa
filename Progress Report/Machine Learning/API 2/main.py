@@ -77,9 +77,11 @@ def predict():
         'Description': filtered_desc,
         'Precaution': filtered_precaution
     }
+    results = make_response(jsonify(results), 200)
 
     # 13. Return the results
-    return jsonify(results)
+    # return jsonify(results)
+    return results
 
 if __name__ == '__main__':
     app.run()

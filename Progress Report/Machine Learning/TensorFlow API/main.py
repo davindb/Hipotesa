@@ -1,10 +1,8 @@
-from flask.helpers import make_response, url_for
+from flask.helpers import make_response
 from flask.json import jsonify
-from flask.templating import render_template
 import numpy as np
 import pandas as pd
-from flask import Flask, request, jsonify, render_template, url_for
-import tensorflow as tf
+from flask import Flask, request, jsonify
 from tensorflow import keras
 import tensorflow_decision_forests as tfdf
 from assets import diseases_list, symptoms_list, disease_description, disease_precaution

@@ -1,7 +1,6 @@
-certifi==2019.11.28
-Click==7.0
-Flask==1.1.1
-numpy>=1.9.2
-pandas>=0.19
-scikit-learn==0.20.0
+Flask
+numpy
+pandas
+scikit-learn
+scipy
 tensorflow_decision_forests==0.1.4

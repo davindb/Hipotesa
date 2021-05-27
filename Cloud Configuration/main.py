@@ -1,13 +1,14 @@
-from flask.helpers import url_for
+from assets import diseases_list, symptoms_list, disease_description, disease_precaution
+import tensorflow_decision_forests as tfdf
+from tensorflow import keras
+from flask.helpers import make_response
 from flask.json import jsonify
-from flask.templating import render_template
 import numpy as np
 import pandas as pd
-from flask import Flask, request, jsonify, render_template, url_for
-import tensorflow as tf
-from tensorflow import keras
-import tensorflow_decision_forests as tfdf
-from assets import diseases_list, symptoms_list, user_inputs
+from flask import Flask, request, jsonify
+import os
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 app = Flask(__name__)
 model_path = './my_model'
@@ -15,73 +16,79 @@ model = keras.models.load_model(model_path)
 
 
 @app.route('/')
-def home():
+def index():
     return '''
     Symptoms Based Disease Prediction Public API built by Kreasi Anak Bangsa team from Bangkit 2021.
     '''
 
 
-@app.route('/DiseasePredict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
+    # 1. Retrieve the data from users as json
+    data = request.get_json()
+
+    # 2. Define the inputs for the model
     model_inputs = []
     for i in symptoms_list:
         model_inputs.append(float(0))
 
-    for i in user_inputs.values():
+    # 3. Create the inputs for the model
+    for i in data.values():
         if i != '0':
             symptom_index = symptoms_list.index(i)
             model_inputs[symptom_index] = float(1)
 
-    # 7. Create the Input DataFrame and convert to tensorflow dataset
+    # 3. Create the Input DataFrame and convert to tensorflow dataset
     df_inputs = pd.DataFrame([model_inputs], columns=symptoms_list)
     model_inputs = tfdf.keras.pd_dataframe_to_tf_dataset(df_inputs, label=None)
 
-    # 8. Predict the data
+    # 4. Predict the data
     prediction = model.predict(model_inputs)
+    predicted = prediction[0]
 
-    # Catch the specific prediction
-    index_of_prediction = 0
-    predicted = prediction[index_of_prediction]
+    # 5. Initialize the highest probability variable
+    first_probability = 0
 
-    # 'predicted' will be performed in an ndarray of probability
-
-    # 9. Initialize the highest probability variable
-    highest_probability = 0
-    second_highest = 0
-
-    # Iterate the ndarray to catch the highest probability of predicted disease
+    # 6. Iterate the ndarray to catch the highest probability of predicted disease
     for i in predicted:
-        if i > highest_probability:
-            highest_probability = i
+        if i > first_probability:
+            first_probability = i
 
-    # Catch the second highest
-    for s in predicted:
-        if s > second_highest and s < highest_probability:
-            second_highest = s
+    # 7. Catch the disease index
+    disease_index = np.where(predicted == first_probability)
+    disease_index = disease_index[0][0]
 
-    # Catch the disease index
-    disease_index_1 = np.where(predicted == highest_probability)
-    disease_index_1 = disease_index_1[0][0]
+    # 8. Find the disease based on the disease index
+    predicted_disease = diseases_list[disease_index]
 
-    disease_index_2 = np.where(predicted == second_highest)
-    disease_index_2 = disease_index_2[0][0]
+    # 9. The probability percentage
+    probability = first_probability*100
 
-    # # Find the disease based on the disease index
-    predicted_disease_1 = diseases_list[disease_index_1]
-    predicted_disease_2 = diseases_list[disease_index_2]
+    # 10. Filter the description based on the predicted disease
+    filtered_desc = filter(
+        lambda disease: disease['Disease'] == predicted_disease, disease_description)
+    filtered_desc = list(filtered_desc)[0]['Description']
 
-    # The probability percentage
-    probability_1 = highest_probability*100
-    probability_2 = second_highest*100
+    # 11. Filter the precaution based on the predicted disease
+    filtered_precaution = filter(
+        lambda disease: disease['Disease'] == predicted_disease, disease_precaution)
+    filtered_precaution = list(filtered_precaution)[0]
+    filtered_precaution = [
+        x[1] for x in filtered_precaution.items() if x[0] != 'Disease' and x[1] != 0]
 
-    # print(f'Probability: {probability_1} %')
-    # print(f'Predicted disease: {predicted_disease_1}\n')
-
-    return {
-        'Prediction': predicted_disease_1,
-        'Probability': probability_1
+    # 12. Store the results as json
+    results = {
+        'Disease': predicted_disease,
+        'Probability': probability,
+        'Description': filtered_desc,
+        'Precaution': filtered_precaution
     }
+    results = make_response(jsonify(results), 200)
+
+    # 13. Return the results
+    # return jsonify(results)
+    return results
 
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=8080, debug=True)
+    app.run()

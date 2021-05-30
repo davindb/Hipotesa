@@ -1,0 +1,2 @@
+rootProject.name = "TrackSymptomSimple"
+include ':app'

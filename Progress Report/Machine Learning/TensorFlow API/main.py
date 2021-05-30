@@ -41,34 +41,29 @@ def predict():
     prediction = model.predict(model_inputs)
     predicted = prediction[0]
 
-    # 5. Initialize the highest probability variable
-    first_probability = 0
+    # 5. Catch the highest probability value
+    highest_probability = max(predicted)
 
-    # 6. Iterate the ndarray to catch the highest probability of predicted disease
-    for i in predicted:
-        if i > first_probability:
-            first_probability = i
-
-    # 7. Catch the disease index
-    disease_index = np.where(predicted == first_probability)
+    # 6. Catch the disease index
+    disease_index = np.where(predicted == highest_probability)
     disease_index = disease_index[0][0]
 
-    # 8. Find the disease based on the disease index
+    # 7. Find the disease based on the disease index
     predicted_disease = diseases_list[disease_index]
 
-    # 9. The probability percentage
-    probability = first_probability*100
+    # 8. The probability percentage
+    probability = highest_probability*100
 
-    # 10. Filter the description based on the predicted disease
+    # 9. Filter the description based on the predicted disease
     filtered_desc = filter(lambda disease: disease['Disease'] == predicted_disease, disease_description)
     filtered_desc = list(filtered_desc)[0]['Description']
 
-    # 11. Filter the precaution based on the predicted disease
+    # 10. Filter the precaution based on the predicted disease
     filtered_precaution = filter(lambda disease: disease['Disease'] == predicted_disease, disease_precaution)
     filtered_precaution = list(filtered_precaution)[0]
     filtered_precaution = [x[1] for x in filtered_precaution.items() if x[0] != 'Disease' and x[1] != 0]
 
-    # 12. Store the results as json
+    # 11. Store the results as json
     results = {
         'Disease': predicted_disease,
         'Probability': probability,
@@ -77,8 +72,7 @@ def predict():
     }
     results = make_response(jsonify(results), 200)
 
-    # 13. Return the results
-    # return jsonify(results)
+    # 12. Return the results
     return results
 
 if __name__ == '__main__':

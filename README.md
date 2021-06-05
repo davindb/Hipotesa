@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="Assets\hipotesa_logo.jpeg" alt="hipotesaLogo" height="150">
+    <img src="Assets\hipotesa_logo.jpeg" alt="hipotesaLogo" height="500">
   </a>
   <br>
 
@@ -41,10 +41,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-This is a Bangkit 2021 final project repository created by B21-CAP0170 team.
-
 There are a lot of diseases that you need to detect at an early stage to be able to identify
 the treatment plan early on and help the patient secure a good way to live. An early detection of
 disease and a precise diagnosis allows for quicker action, saving precious time, and to prevent
@@ -60,7 +56,8 @@ The final result is to generate the predicted disease following with its treatme
 
 ### Built With
 
-* [GoogleCloudPlatform](https://cloud.google.com/)
+* [Tensorflow](https://www.tensorflow.org/)
+* [Google Cloud Platform](https://cloud.google.com/)
 * [Gunicorn](https://gunicorn.org/)
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 
@@ -109,18 +106,12 @@ This is an example of how to list things you need to use the software and how to
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Android Apps
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<p align="center">
+  <img src="Assets\input_data.PNG" height="500"></img>&nbsp; &nbsp;<img src="Assets\result.PNG" height="500">
+</p>
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
 
 
 
@@ -135,15 +126,6 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->

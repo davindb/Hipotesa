@@ -31,7 +31,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#android-apps">Usage</a></li>
+    <li><a href="#android-app">Android App</a></li>
     <li><a href="#contributing">Contributing</a></li>
   </ol>
 </details>
@@ -79,12 +79,15 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+This project requires several resources on your development machine: 
+* [Python 3.7++](https://www.python.org/downloads/)
+* Tensorflow 2.x
   ```sh
-  npm install npm@latest -g
+  $ pip install tensorflow
   ```
-
+* Other dependencies in requirements.txt  
+  ```sh
+  $ pip install -r requirements.txt
 ### Installation
 
 1. Get a free API Key at [https://example.com](https://example.com)
@@ -104,7 +107,7 @@ This is an example of how to list things you need to use the software and how to
 
 
 <!-- USAGE EXAMPLES -->
-## Android Apps
+## Android App
 
 <p align="center">
   <img src="Assets\input_data.PNG" height="500"></img>&nbsp; &nbsp;<img src="Assets\result.PNG" height="500">

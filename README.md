@@ -145,3 +145,23 @@ Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.c
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+<!-- LinkedIn Link -->
+
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn--blue?style=social&logo=Linkedin
+[davin-linkedin-url]: https://www.linkedin.com/in/davindb/
+[ihsan-linkedin-url]: https://www.linkedin.com/in/ihsanramdhani/
+[agus-linkedin-url]: https://www.linkedin.com/in/aguscahya/
+[fadia-linkedin-url]: https://www.linkedin.com/in/fadia-fatta-dylla-326998113/
+[raved-linkedin-url]: https://www.linkedin.com/in/ravedya/
+
+<!-- Github Link -->
+
+[github-shield]: https://img.shields.io/badge/GitHub--blue?style=social&logo=Github
+[davin-github-url]: https://github.com/davindb
+[ihsan-github-url]: https://github.com/ihsanramdhani
+[agus-github-url]: https://github.com/Guscah
+[fadia-github-url]: https://github.com/fadiafattadyllaaa
+[raved-github-url]: https://github.com/ravedya

@@ -1,3 +1,18 @@
+<br />
+<p align="center">
+  <a href="#">
+    <img src="Assets\hipotesa_logo.jpeg" alt="hipotesaLogo" height="150">
+  </a>
+  <br>
+
+  <p align="center">
+    <img src="https://img.shields.io/badge/ID-B21--CAP0170-00ACEE">
+  </p>
+
+  <h1 align="center">Symptoms Based Disease Prediction
+  </h1>
+</p>
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -8,6 +23,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#team-members">Team Members</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -23,7 +39,7 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## Symptoms-Based-Disease-Prediction
+## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
@@ -48,7 +64,15 @@ The final result is to generate the predicted disease following with its treatme
 * [Gunicorn](https://gunicorn.org/)
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 
+## Team Members
 
+|         Member                 | Student ID |                Project Role                |                                                  Contacts                                                    |
+| :----------------------------: | :--------: | :----------------------------------------: | :----------------------------------------------------------------------------------------------------------: |
+|  Davin Darmalaksana Bhagaspati |  M0111153  | Project Manager, Machine Learning Engineer |  [![davin-linkedin][linkedin-shield]][davin-linkedin-url][![davin-github][github-shield]][davin-github-url]  |
+|     Ihsan Nafilah Ramdhani     |  M0111152  |         Machine Learning Engineer          |  [![ihsan-linkedin][linkedin-shield]][ihsan-linkedin-url][![ihsan-github][github-shield]][ihsan-github-url]  |
+|  Agus Cahya Ananda Yoga Putra  |  C0121258  |          Cloud Platform Engineer           |    [![agus-linkedin][linkedin-shield]][agus-linkedin-url][![agus-github][github-shield]][agus-github-url]    |
+|       Fadia Fatta Dylla        |  C0121262  |          Cloud Platform Engineer           |  [![fadia-linkedin][linkedin-shield]][fadia-linkedin-url][![fadia-github][github-shield]][fadia-github-url]  |
+|   Ravedya Aufa Amaranggana W.  |  A0111155  |              Mobile Developer              |  [![raved-linkedin][linkedin-shield]][raved-linkedin-url][![raved-github][github-shield]][raved-github-url]  |
 
 
 

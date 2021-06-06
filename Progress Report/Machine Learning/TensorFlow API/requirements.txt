@@ -4,3 +4,4 @@ pandas
 scikit-learn
 scipy
 tensorflow_decision_forests==0.1.4
+firebase-admin

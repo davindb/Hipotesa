@@ -2,7 +2,7 @@ from flask.helpers import make_response
 from flask.json import jsonify
 import numpy as np
 import pandas as pd
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from tensorflow import keras
 from tensorflow.python.ops.gen_array_ops import where
 import tensorflow_decision_forests as tfdf
@@ -10,10 +10,12 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 from operator import itemgetter
-# from assets import diseases_list, symptoms_list, disease_description, disease_precaution
 
 # Setup Flask, Model and Firestore
-app = Flask(__name__)
+app = Flask(__name__,
+            static_url_path='', 
+            static_folder='web/static',
+            template_folder='web/templates')
 
 model_path = '../saved_model/my_model'
 model = keras.models.load_model(model_path)
@@ -24,9 +26,7 @@ db = firestore.client()
 
 @app.route('/')
 def index():
-    return '''
-    Symptoms Based Disease Prediction Public API built by Kreasi Anak Bangsa team from Bangkit 2021.
-    '''
+    return render_template('index.html')
 
 # Read all diseases
 @app.route('/diseases', methods = ['GET'])

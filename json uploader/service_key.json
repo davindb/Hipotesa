@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "symptoms-disease-prediction",
+  "private_key_id": "5c57f922e62f850873f64807241b52a5ec32b259",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDZ4AY2Qr0oxP+s\nDXRN9iQMLKNrUa1nH3qVPvUX77i4XSiWJnAkILICDIaO3uKsCQhDL+OzC2yTYgUu\n+eyBSEaFLfja2KHwPDvgFM8yrgfvQ1mLxNRHfMwCzN+XlPQrN5hRTvvhu4elpZrv\nUulL9WTLr4/dU3f1yq5PqUG0mMhGVgbG/9WPfXDxqOJoAEnN7rlm4UN/Z6ib46Jz\ns/hTIQoo6u7juRC2lVR7hrCowDVtuCpnfmlkF3oviwXNwibRbQVh2Gz0YKcE1GxE\n3PBnxmQse5xTJxUcgRlFSHCWVoN1NYhJtxYK2E5eazh0RXanfiARJSgg8TKw7JEb\nHvjn7Z6DAgMBAAECggEAM3dI4F5pgozufDz9YUEoiLuuqrYziO2VrlWd3dahwuM2\nqClSSiZzBirhSjR6RPspOX3BgtTLBBGeeddNt8hT6DfQ1hlgP3hrCGbB/w2/EBTP\nvUV0g6KGKo8srgjgmKjcUTCgLVV4GHgDHk9ujqPb+IVzLWv/JU+IV4b632dLv9k4\n0v+5nZFd3gnD6JQcBQ1G8kr/8H4z/iA9KHYsYQC6hExvPayhM1VB+Q1IS0c5ArDu\nPpDdIYRnAa/MfD5wNWjAzmsLfTcWtDV/DKFQceaf1WY9n/DPjieiRqaCHlAhryfL\n0tbMJ2aZ0gObEqYoufM4fetLStqgt0VF8kTB3RNLYQKBgQDshLI0+dOnkJwlj9xz\nNp+vK/a0nY7TB8hPJqVuIf610iXmA4oqLJ8KPMHpRQymygM15ofzc3fboUSlR6s1\nPzGOUYdn3C+1qXkdmbnsfcSNJVqUXkCjeTbRdIsig0DSg6dHFPMV4rTWaRLyYFwl\nOzEUQk69y5teaCRK31UX8eFXcwKBgQDr0jXe8EQ2fwDVFLqj670bNB7kWch9AQ+t\n1736I/PrcreMcACeAsk07LX5GuqJM09XCTRP1XIFFHiUJlQe7t6tAKzuRRxsJrfO\nweKFp7YsfNE+GAQrC2ZzkOVgYh/k6ajtox6JmqQAmuI4DPqTawMSTfCbA5jf+isg\nF3aIekU4sQKBgDKiHbx1lzgSHztzVtBba0gG82OrLz5CNkGrllLDeFHYUUCylUt+\nDfYVF7YmkBTMvm81kPkvSQN9vMJdW2ukwakkDwbO/m+3fjQ2CrV0HzXQP1nv64qT\nkoa4mmijDKeEg7UV6QxQYkJccC/vLQrTZyhdIZpEEljdlpdoxEDCCWm9AoGAJC81\nJOgpD1OdhRSRLuXVNn9g3hkIsmWfSkV4WRF7M/1+PIZTEevLg9tucLK4miTNX8WB\nyV4vCKiDd/gJoFV2xYT9A/KG0fF+8rK9V1TMlzbvxF9bBF/TcJgjGg70ZeOUkCIf\nZW3dDFq3q3ISYNxitERRTvfWVUfFpj7zaS2ZwYECgYBCnimmzGPmD1azKvIuIrMI\n+hK5stHl+mQc8gn05LhbET3MNufqdb8bOZYdbIM9nudiIiHUJ5xDlF4ssEnGdalD\n99YmjBX8qDhhQh7PBcAYbEDj+sDImb1GP8bzNDYHIjFFVOmTkjAg1aQdVd9d448l\n57OJEOuXXCggbI1cvdV8sQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-oqrz7@symptoms-disease-prediction.iam.gserviceaccount.com",
+  "client_id": "103988170984435919760",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-oqrz7%40symptoms-disease-prediction.iam.gserviceaccount.com"
+}

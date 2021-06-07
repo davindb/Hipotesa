@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/navy_blue"
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -13,7 +14,7 @@
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/select_symptom"
+            android:background="@color/white"
             android:paddingTop="16dp"
             android:paddingBottom="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -35,7 +37,7 @@
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.611"
@@ -48,6 +50,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/select_symptom"
+            android:background="@color/white"
             android:paddingTop="16dp"
             android:paddingBottom="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -58,7 +61,7 @@
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +73,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/select_symptom"
+            android:background="@color/white"
             android:paddingTop="16dp"
             android:paddingBottom="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,7 +84,7 @@
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,6 +96,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/select_symptom"
+            android:background="@color/white"
             android:paddingTop="16dp"
             android:paddingBottom="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -102,7 +107,7 @@
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +119,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/select_symptom"
+            android:background="@color/white"
             android:paddingTop="16dp"
             android:paddingBottom="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -122,55 +128,13 @@
         android:id="@+id/btnPredict"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/predict"
-        android:textColor="@color/white"
+        android:background="@color/white"
+        android:textColor="@color/navy_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 
-    <TextView
-        android:id="@+id/tvDisease"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/disease"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPredict" />
-
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/description"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProbability" />
-
-    <TextView
-        android:id="@+id/tvPrecaution"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/precaution"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
-
-    <TextView
-        android:id="@+id/tvProbability"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/probability"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDisease" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

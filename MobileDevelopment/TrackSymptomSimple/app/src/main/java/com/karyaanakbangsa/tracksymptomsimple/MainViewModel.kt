@@ -12,11 +12,12 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: Repository) : ViewModel() {
 
-    val predictionResponse = MutableLiveData<PredictionResponse>()
+    private val predictionResponse = MutableLiveData<PredictionResponse>()
 
     fun pushPost(post: SymptomsBody) {
         viewModelScope.launch {
             val response = repository.postSymptoms(post)
+            Log.d("Post", post.toString())
             Log.d("Response", response.body().toString())
             predictionResponse.postValue(response.body())
             Log.d("Response Code", response.code().toString())

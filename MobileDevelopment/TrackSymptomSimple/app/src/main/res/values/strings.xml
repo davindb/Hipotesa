@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TrackSymptomSimple</string>
 
-    <string name="action_bar_title">Track Symptom</string>
+    <string name="action_bar_title">Hipotesa</string>
 
     <string name="select_symptom">Select Symptom</string>
 

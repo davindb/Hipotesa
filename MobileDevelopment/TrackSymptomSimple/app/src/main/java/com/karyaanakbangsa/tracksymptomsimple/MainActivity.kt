@@ -2,6 +2,7 @@ package com.karyaanakbangsa.tracksymptomsimple
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Toast
@@ -73,12 +74,13 @@ class MainActivity : AppCompatActivity() {
                         val disease = it.Disease
                         val description = it.Description
                         val probability = String.format("%.2f",it.Probability)
-                        val precaution = it.Precaution.toString()
+                        val precaution = it.Precaution
+                        Log.d("precaution", precaution.toString())
                         Intent(this@MainActivity, PredictionResultActivity::class.java).also{i->
                             i.putExtra(PredictionResultActivity.EXTRA_DISEASE, disease)
                             i.putExtra(PredictionResultActivity.EXTRA_DESCRIPTION, description)
                             i.putExtra(PredictionResultActivity.EXTRA_PROBABILITY, probability)
-                            i.putExtra(PredictionResultActivity.EXTRA_PRECAUTION, precaution)
+                            i.putStringArrayListExtra(PredictionResultActivity.EXTRA_PRECAUTION, precaution)
                             startActivity(i)
                         }
                     } else {

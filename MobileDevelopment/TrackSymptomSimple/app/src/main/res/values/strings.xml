@@ -1,14 +1,22 @@
 <resources>
-    <string name="app_name">TrackSymptomSimple</string>
+    <string name="app_name">Hipotesa</string>
 
     <string name="action_bar_title">Hipotesa</string>
 
+    <string name="header">We provide an AI based healthcare system.</string>
+    <string name="extra_header">An AI based healthcare system aims to help patients to detect their
+        disease at an early stage to be able to identify the treatment plan early on and help them
+        secure a good way to live. Our system applies a machine learning model that will find out
+        what disease the patients have and what treatments they should take.</string>
     <string name="select_symptom">Select Symptom</string>
 
-    <string name="disease">Disease :</string>
-    <string name="description">Description :</string>
-    <string name="precaution">Precaution :</string>
-    <string name="probability">Probability :</string>
+    <string name="disclaimer">*This is only a prediction, please kindly contact
+        your doctor for further examination </string>
+
+    <string name="disease">Disease : </string>
+    <string name="description">Description : </string>
+    <string name="precaution">Precaution : </string>
+    <string name="probability">Probability : </string>
 
     <string name="predict">Predict!</string>
 

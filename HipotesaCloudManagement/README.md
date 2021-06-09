@@ -98,7 +98,7 @@ This is an overview of Hipotesa Cloud Architecture, what the prequisites are, ho
 
 - Laptop / PC
 - Internet Connection
-- Python 3.9
+- Python 3.6++
 
 ### Installation
 

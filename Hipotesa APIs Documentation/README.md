@@ -52,7 +52,7 @@ This is the complete guidance on how our APIs can be implemented to your machine
     </li>
     <li><a href="#diseases-list">Diseases List</a></li>
     <li><a href="#symptoms-list">Symptoms List</a></li>
-    <li><a href="#preform-queries-on-request">Perform Queries on Request</a></li>
+    <li><a href="#perform-queries-on-request">Perform Queries on Request</a></li>
     <li><a href="#project-repositories">Project Repositories</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>

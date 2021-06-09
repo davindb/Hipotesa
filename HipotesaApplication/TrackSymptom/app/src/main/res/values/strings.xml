@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TrackSymptom</string>
+
+    <string name="symptom_track">What symptoms do you have?</string>
+</resources>

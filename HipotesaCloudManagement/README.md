@@ -31,9 +31,9 @@
     ·
     <a href="http://www.hipotesa.tech/">Our Website</a>
     ·
-    <a href="https://github.com/Guscah/HipotesaRestAPI/#contributing">Contribute</a>
+    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement/#contributing">Contribute</a>
     ·
-    <a href="https://github.com/Guscah/HipotesaRestAPI/issues">Report Bug</a>
+    <a href="https://github.com/Guscah/Hipotesa/issues">Report Bug</a>
   </p>
 </p>
 
@@ -108,7 +108,7 @@ To deploy an application on Google Cloud Platform, you don't need to install any
 
 For the REST API deployment on the Google Cloud Platform to be able to be accessed by android apps, we choose App Engine Service as a platform to deploy our REST API.
 
-We use App Engine [Flexible Environment](https://github.com/Guscah/HipotesaRestAPI/AppEngine.md) as our deployment service (Main Option).
+We use App Engine [Flexible Environment](https://github.com/davindb/Hipotesa/blob/main/HipotesaCloudManagement/AppEngine.md) as our deployment service (Main Option).
 
 <b>Note:</b> You can't do the deployment using the App Engine Standard if the number of files are more than 10K and it will need more time for like more than 10 minutes to deploy.
 
@@ -116,15 +116,14 @@ We use App Engine [Flexible Environment](https://github.com/Guscah/HipotesaRestA
 
 Please refer to the _Hipotesa Open APIs Documentation_ below for more information and guidance.
 
-- [Open APIs Documentation](https://github.com/davindb/HipotesaDeveloper/#readme)
+- [Open APIs Documentation](https://github.com/davindb/Hipotesa/tree/main/Hipotesa%20APIs%20Documentation/#readme)
 
 ### Other Repositories
 
 Check our other repositories to know more about Hipotesa.
 
-- [Hipotesa Project](https://github.com/davindb/Hipotesa/#readme)
 - [Hipotesa Application]()
-- [Hipotesa Algorithm](https://github.com/davindb/HipotesaAlgorithm)
+- [Hipotesa Algorithm](https://github.com/davindb/Hipotesa/tree/main/HipotesaAlgorithm/#readme)
 
 <!-- TEAM MEMBERS -->
 
@@ -198,11 +197,11 @@ Kreasi Anak Bangsa group © Copyright 2021 | All Rights Reserved.
 
 <!-- OTHERS -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/davindb/HipotesaProject.svg?style=for-the-badge
-[contributors-url]: https://github.com/davindb/HipotesaProject/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/davindb/HipotesaProject.svg?style=for-the-badge
-[forks-url]: https://github.com/davindb/HipotesaProject/network/members
-[stars-shield]: https://img.shields.io/github/stars/davindb/HipotesaProject.svg?style=for-the-badge
-[stars-url]: https://github.com/davindb/HipotesaProject/stargazers
-[issues-shield]: https://img.shields.io/github/issues/davindb/HipotesaProject.svg?style=for-the-badge
-[issues-url]: https://github.com/davindb/HipotesaProject/issues
+[contributors-shield]: https://img.shields.io/github/contributors/davindb/Hipotesa.svg?style=for-the-badge
+[contributors-url]: https://github.com/davindb/Hipotesa/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/davindb/Hipotesa.svg?style=for-the-badge
+[forks-url]: https://github.com/davindb/Hipotesa/network/members
+[stars-shield]: https://img.shields.io/github/stars/davindb/Hipotesa.svg?style=for-the-badge
+[stars-url]: https://github.com/davindb/Hipotesa/stargazers
+[issues-shield]: https://img.shields.io/github/issues/davindb/Hipotesa.svg?style=for-the-badge
+[issues-url]: https://github.com/davindb/Hipotesa/issues

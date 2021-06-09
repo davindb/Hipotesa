@@ -4,13 +4,11 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 from tensorflow import keras
-from tensorflow.python.ops.gen_array_ops import where
 import tensorflow_decision_forests as tfdf
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 from operator import itemgetter
-import json
 
 # Setup Flask, Model and Firestore
 app = Flask(__name__,
@@ -29,78 +27,232 @@ db = firestore.client()
 def index():
     return render_template('index.html')
 
+
 # Read all diseases
-@app.route('/diseases', methods = ['GET'])
+@app.route('/diseases', methods = ['GET', 'POST'])
 def diseases():
     results = []
     docs = db.collection('diseases')
 
-    # Retrieve the data from users as json
-    data = request.data
+    if request.method == 'GET':
+        if request.data:
+            try:
+                # Retrieve the data from users as json
+                data = request.get_json(force=True)
+                thewhere = data.get('where')
+                theorder = data.get('order')
+                thedescending = data.get('descending')
+                thelimit = data.get('limit')
 
-    if data:
-        data = request.get_json()
+                # Retrieve all the diseases data from firestore
+                diseases = []
+                docs = docs.stream()
+                for doc in docs:
+                    diseases.append(doc.to_dict())
+
+                for i in data.keys():
+                    if i not in ['where', 'order', 'descending', 'limit']:
+                        raise ValueError(f"ValueError: <{i}> is not a valid key.")
+
+                # As a new dict with filtered diseases
+                new_dict = []
+                
+                if thewhere:
+
+                    if type(thewhere) is not dict:
+                        raise TypeError(f"TypeError: <{thewhere}> expected to be a key value pair.")
+
+
+                    if 'Description' in thewhere:
+                        thevalue = thewhere.get('Description')
+                        if type(thevalue) is list:
+                            new_dict = list(filter(lambda x: x.get('Description') in thevalue and x.get('Description') not in new_dict, diseases))
+                        else:
+                            new_dict = list(filter(lambda x: x.get('Description') in thevalue and x.get('Description') not in new_dict, diseases))  
+
+                    if 'Disease' in thewhere:
+                        thevalue = thewhere.get('Disease')
+                        if type(thevalue) is list:
+                            new_dict = list(filter(lambda x: x.get('Disease') in thevalue and x.get('Disease') not in new_dict, diseases))
+                        else:
+                            new_dict = list(filter(lambda x: x.get('Disease') == thevalue and x.get('Disease') not in new_dict, diseases))
+
+                    if 'Id' in thewhere:
+                        thevalue = thewhere.get('Id')
+                        if type(thevalue) is list:
+                            new_dict = list(filter(lambda x: x.get('Id') in thevalue and x.get('Id') not in new_dict, diseases))
+                        else:
+                            new_dict = list(filter(lambda x: x.get('Id') == thevalue and x.get('Id') not in new_dict, diseases))
+
+                if 'where' not in data:
+                    new_dict = diseases
+
+                if 'order' in data:
+
+                    if type(theorder) is not str:
+                        raise TypeError(f"TypeError: <{theorder}> expected to be a string.")
+
+                    if 'descending' in data:
+                        if type(thedescending) is not bool:
+                            raise TypeError(f"TypeError: <{thedescending}> expected to be a boolean.")
+                    
+                        new_dict = sorted(new_dict, key=lambda i: i[theorder], reverse=True)
+
+                    else:
+                        new_dict = sorted(new_dict, key=lambda i: i[theorder])
+                
+                if 'descending' in data:
+
+                    if type(thedescending) is not bool:
+                        raise TypeError(f"TypeError: <{thedescending}> expected to be a boolean.")
+
+                    if 'order' not in data:
+                        new_dict = sorted(new_dict, key=lambda i: i['Id'], reverse=True)
+
+                if 'limit' in data:
+
+                    if type(thelimit) is not int:
+                        raise TypeError(f"TypeError: <{thelimit}> expected to be an integer.")
+                        
+                    for index, el in enumerate(new_dict):
+                        if index == thelimit:
+                            break
+                        else:
+                            results.append(el)
+                    
+                    new_dict = results
+
+                # Return the results
+                return make_response(jsonify(new_dict), 200)
+            
+            except TypeError as err:
+                return make_response(jsonify({
+                "ErrorMessage": str(err)
+            }), 400)
+            except ValueError as err:
+                return make_response(jsonify({
+                "ErrorMessage": str(err)
+            }), 400)
+
+        elif request.args:
+            try:
+                # Retrieve the data from users as arguments
+                args = request.args
+                for i in args.items():
+                    docs = docs.where(i[0], '==', int(i[1]) if i[0] == 'Id' else i[1])
+
+                docs = docs.stream()
+                for doc in docs:
+                    results.append(doc.to_dict())
+                
+                results = sorted(results, key=itemgetter('Id'))
+
+                # Return the results
+                return make_response(jsonify(results), 200)
+
+            except TypeError as err:
+                return make_response(jsonify({
+                    "ErrorMessage": f"TypeError: {err}"
+                }), 400)
+        else:
+            docs = docs.stream()
+            for doc in docs:
+                results.append(doc.to_dict())
+            
+            results = sorted(results, key=itemgetter('Id'))
+
+            # Return the results
+            return make_response(jsonify(results), 200)
+    
+    if request.method == 'POST':
         try:
+            # Retrieve the data from users as json
+            data = request.get_json()
+            thewhere = data.get('where')
+            theorder = data.get('order')
+            thedescending = data.get('descending')
+            thelimit = data.get('limit')
+
+            # Retrieve all the diseases data from firestore
+            diseases = []
+            docs = docs.stream()
+            for doc in docs:
+                diseases.append(doc.to_dict())
+
             for i in data.keys():
                 if i not in ['where', 'order', 'descending', 'limit']:
                     raise ValueError(f"ValueError: <{i}> is not a valid key.")
 
+            # As a new dict with filtered diseases
+            new_dict = []
+            
             if 'where' in data:
 
-                where = data.get('where')
+                if type(thewhere) is not dict:
+                    raise TypeError(f"TypeError: <{thewhere}> expected to be a key value pair.")
 
-                if type(where) is not dict:
-                    raise TypeError(f"TypeError: <{where}> expected to be a key value pair.")
 
-                for i in where.items():
-                    if type(i[1]) is list:
-                        docs = docs.where(i[0], 'in', i[1])
+                if 'Description' in thewhere:
+                    thevalue = thewhere.get('Description')
+                    if type(thevalue) is list:
+                        new_dict = list(filter(lambda x: x.get('Description') in thevalue and x.get('Description') not in new_dict, diseases))
                     else:
-                        print(i)
-                        docs = docs.where(i[0], '==', i[1])
+                        new_dict = list(filter(lambda x: x.get('Description') in thevalue and x.get('Description') not in new_dict, diseases))  
+
+                if 'Disease'in thewhere:
+                    thevalue = thewhere.get('Disease')
+                    if type(thevalue) is list:
+                        new_dict = list(filter(lambda x: x.get('Disease') in thevalue and x.get('Disease') not in new_dict, diseases))
+                    else:
+                        new_dict = list(filter(lambda x: x.get('Disease') == thevalue and x.get('Disease') not in new_dict, diseases))
+
+                if 'Id' in thewhere:
+                    thevalue = thewhere.get('Id')
+                    if type(thevalue) is list:
+                        new_dict = list(filter(lambda x: x.get('Id') in thevalue and x.get('Id') not in new_dict, diseases))
+                    else:
+                        new_dict = list(filter(lambda x: x.get('Id') == thevalue and x.get('Id') not in new_dict, diseases))
+
+            if 'where' not in data:
+                new_dict = diseases
 
             if 'order' in data:
-                order = data.get('order')
 
-                if type(order) is not str:
-                    raise TypeError(f"TypeError: <{order}> expected to be a string.")
+                if type(theorder) is not str:
+                    raise TypeError(f"TypeError: <{theorder}> expected to be a string.")
 
                 if 'descending' in data:
-                    descending = data.get('descending')
-
-                    if type(descending) is not bool:
-                        raise TypeError(f"TypeError: <{descending}> expected to be a boolean.")
+                    if type(thedescending) is not bool:
+                        raise TypeError(f"TypeError: <{thedescending}> expected to be a boolean.")
                 
-                    if descending:
-                        docs = docs.order_by(order, direction=firestore.Query.DESCENDING)
-                    else:
-                        docs = docs.order_by(order)
+                    new_dict = sorted(new_dict, key=lambda i: i[theorder], reverse=True)
+
                 else:
-                    docs = docs.order_by(order)
+                    new_dict = sorted(new_dict, key=lambda i: i[theorder])
             
             if 'descending' in data:
-                descending = data.get('descending')
 
-                if type(descending) is not bool:
-                    raise TypeError(f"TypeError: <{descending}> expected to be a boolean.")
+                if type(thedescending) is not bool:
+                    raise TypeError(f"TypeError: <{thedescending}> expected to be a boolean.")
 
-                if 'order' not in data and descending is True:
-                    docs = docs.order_by('Id' ,direction=firestore.Query.DESCENDING)
+                if 'order' not in data:
+                    new_dict = sorted(new_dict, key=lambda i: i['Id'], reverse=True)
 
             if 'limit' in data:
-                limit = data.get('limit')
 
-                if type(limit) is not int:
-                    raise TypeError(f"TypeError: <{limit}> expected to be an integer.")
+                if type(thelimit) is not int:
+                    raise TypeError(f"TypeError: <{thelimit}> expected to be an integer.")
                     
-                docs = docs.limit(limit)
-
-            docs = docs.get()
-            for doc in docs:
-                results.append(doc.to_dict())
+                for index, el in enumerate(new_dict):
+                    if index == thelimit:
+                        break
+                    else:
+                        results.append(el)
+                
+                new_dict = results
 
             # Return the results
-            return jsonify(results)
+            return make_response(jsonify(new_dict), 200)
             
         except TypeError as err:
             return make_response(jsonify({
@@ -111,153 +263,224 @@ def diseases():
             "ErrorMessage": str(err)
         }), 400)
 
-    elif request.args:
-        try:
-            args = request.args
-
-            for i in args.items():
-                docs = docs.where(i[0], '==', int(i[1]) if i[0] == 'Id' else i[1])
-            
-            docs = docs.get()
-            for doc in docs:
-                results.append(doc.to_dict())
-            
-            results = sorted(results, key=itemgetter('Id'))
-
-            # Return the results
-            return jsonify(results)
-
-        except TypeError as err:
-            return make_response(jsonify({
-                "ErrorMessage": f"TypeError: {err}"
-            }), 400)
-    else:
-        
-        docs = docs.get()
-        for doc in docs:
-            results.append(doc.to_dict())
-        
-        results = sorted(results, key=itemgetter('Id'))
-
-        # Return the results
-        return jsonify(results)
-
 # Read all symptoms
-@app.route('/symptoms', methods = ['GET'])
+@app.route('/symptoms', methods = ['GET', 'POST'])
 def symptoms():
     results = []
     docs = db.collection('symptoms')
 
-    # Retrieve the data from users as json
-    data = request.data
+    if request.method == 'GET':
+        if request.data:
+            try:
+                # Retrieve the data from users as json
+                data = request.get_json(force=True)
+                thewhere = data.get('where')
+                theorder = data.get('order')
+                thedescending = data.get('descending')
+                thelimit = data.get('limit')
 
-    if data:
+                # Retrieve all the symptoms data from firestore
+                symptoms = []
+                docs = docs.stream()
+                for doc in docs:
+                    symptoms.append(doc.to_dict())
 
-        data = request.get_json()
+                for i in data.keys():
+                    if i not in ['where', 'order', 'descending', 'limit']:
+                        raise ValueError(f"ValueError: <{i}> is not a valid key.")
 
-        try:
-
-            for i in data.keys():
-                if i not in ['where', 'order', 'descending', 'limit']:
-                    raise ValueError(f"ValueError: <{i}> is not a valid key.")
-
-            if 'where' in data:
-
-                where = data.get('where')
-
-                if type(where) is not dict:
-                    raise TypeError(f"TypeError: <{where}> expected to be a key value pair.")
-
-                for i in where.items():
-                    if type(i[1]) is list:
-                        docs = docs.where(i[0], 'in', i[1])
-                    else:
-                        print(i)
-                        docs = docs.where(i[0], '==', i[1])
-
-            if 'order' in data:
-                order = data.get('order')
-
-                if type(order) is not str:
-                    raise TypeError(f"TypeError: <{order}> expected to be a string.")
-
-                if 'descending' in data:
-                    descending = data.get('descending')
-
-                    if type(descending) is not bool:
-                        raise TypeError(f"TypeError: <{descending}> expected to be a boolean.")
+                # As a new dict with filtered symptoms
+                new_dict = []
                 
-                    if descending:
-                        docs = docs.order_by(order, direction=firestore.Query.DESCENDING)
+                if 'where' in data:
+
+                    if type(thewhere) is not dict:
+                        raise TypeError(f"TypeError: <{thewhere}> expected to be a key value pair.")
+
+                    if 'Symptom' in thewhere:
+                        thevalue = thewhere.get('Symptom')
+                        if type(thevalue) is list:
+                            new_dict = list(filter(lambda x: x.get('Symptom') in thevalue and x.get('Symptom') not in new_dict, symptoms))
+                        else:
+                            new_dict = list(filter(lambda x: x.get('Symptom') == thevalue and x.get('Symptom') not in new_dict, symptoms))
+
+                    if 'Id' in thewhere:
+                        thevalue = thewhere.get('Id')
+                        if type(thevalue) is list:
+                            new_dict = list(filter(lambda x: x.get('Id') in thevalue and x.get('Id') not in new_dict, symptoms))
+                        else:
+                            new_dict = list(filter(lambda x: x.get('Id') == thevalue and x.get('Id') not in new_dict, symptoms))
+
+                if 'where' not in data:
+                    new_dict = symptoms
+
+                if 'order' in data:
+
+                    if type(theorder) is not str:
+                        raise TypeError(f"TypeError: <{theorder}> expected to be a string.")
+
+                    if 'descending' in data:
+                        if type(thedescending) is not bool:
+                            raise TypeError(f"TypeError: <{thedescending}> expected to be a boolean.")
+                    
+                        new_dict = sorted(new_dict, key=lambda i: i[theorder], reverse=True)
+
                     else:
-                        docs = docs.order_by(order)
-                else:
-                    docs = docs.order_by(order)
+                        new_dict = sorted(new_dict, key=lambda i: i[theorder])
+                
+                if 'descending' in data:
+
+                    if type(thedescending) is not bool:
+                        raise TypeError(f"TypeError: <{thedescending}> expected to be a boolean.")
+
+                    if 'order' not in data:
+                        new_dict = sorted(new_dict, key=lambda i: i['Id'], reverse=True)
+
+                if 'limit' in data:
+
+                    if type(thelimit) is not int:
+                        raise TypeError(f"TypeError: <{thelimit}> expected to be an integer.")
+                        
+                    for index, el in enumerate(new_dict):
+                        if index == thelimit:
+                            break
+                        else:
+                            results.append(el)
+                    
+                    new_dict = results
+
+                # Return the results
+                return make_response(jsonify(new_dict), 200)
             
-            if 'descending' in data:
-                descending = data.get('descending')
+            except TypeError as err:
+                return make_response(jsonify({
+                "ErrorMessage": str(err)
+            }), 400)
+            except ValueError as err:
+                return make_response(jsonify({
+                "ErrorMessage": str(err)
+            }), 400)
 
-                if type(descending) is not bool:
-                    raise TypeError(f"TypeError: <{descending}> expected to be a boolean.")
+        elif request.args:
+            try:
+                # Retrieve the data from users as arguments
+                args = request.args
+                for i in args.items():
+                    docs = docs.where(i[0], '==', int(i[1]) if i[0] == 'Id' else i[1])
 
-                if 'order' not in data and descending is True:
-                    docs = docs.order_by('Id' ,direction=firestore.Query.DESCENDING)
+                docs = docs.stream()
+                for doc in docs:
+                    results.append(doc.to_dict())
+                
+                results = sorted(results, key=itemgetter('Id'))
 
-            if 'limit' in data:
-                limit = data.get('limit')
+                # Return the results
+                return make_response(jsonify(results), 200)
 
-                if type(limit) is not int:
-                    raise TypeError(f"TypeError: <{limit}> expected to be an integer.")
-
-                docs = docs.limit(limit)
-
-            docs = docs.get()
-            for doc in docs:
-                results.append(doc.to_dict())
-
-            # Return the results
-            return jsonify(results)
-            
-        except TypeError as err:
-            return make_response(jsonify({
-            "ErrorMessage": str(err)
-        }), 400)
-        except ValueError as err:
-             return make_response(jsonify({
-            "ErrorMessage": str(err)
-        }), 400)
-
-    elif request.args:
-        try:
-            args = request.args
-
-            for i in args.items():
-                print(i)
-                docs = docs.where(i[0], '==', int(i[1]) if i[0] == 'Id' else i[1])
-            
-            docs = docs.get()
+            except TypeError as err:
+                return make_response(jsonify({
+                    "ErrorMessage": f"TypeError: {err}"
+                }), 400)
+        else:
+            docs = docs.stream()
             for doc in docs:
                 results.append(doc.to_dict())
             
             results = sorted(results, key=itemgetter('Id'))
 
             # Return the results
-            return jsonify(results)
+            return make_response(jsonify(results), 200)
+    
+    if request.method == 'POST':
+        try:
+            # Retrieve the data from users as json
+            data = request.get_json(force=True)
+            thewhere = data.get('where')
+            theorder = data.get('order')
+            thedescending = data.get('descending')
+            thelimit = data.get('limit')
 
+            # Retrieve all the symptoms data from firestore
+            symptoms = []
+            docs = docs.stream()
+            for doc in docs:
+                symptoms.append(doc.to_dict())
+
+            for i in data.keys():
+                if i not in ['where', 'order', 'descending', 'limit']:
+                    raise ValueError(f"ValueError: <{i}> is not a valid key.")
+
+            # As a new dict with filtered symptoms
+            new_dict = []
+            
+            if 'where' in data:
+
+                if type(thewhere) is not dict:
+                    raise TypeError(f"TypeError: <{thewhere}> expected to be a key value pair.")
+
+                if 'Symptom' in thewhere:
+                    thevalue = thewhere.get('Symptom')
+                    if type(thevalue) is list:
+                        new_dict = list(filter(lambda x: x.get('Symptom') in thevalue and x.get('Symptom') not in new_dict, symptoms))
+                    else:
+                        new_dict = list(filter(lambda x: x.get('Symptom') == thevalue and x.get('Symptom') not in new_dict, symptoms))
+
+                if 'Id' in thewhere:
+                    thevalue = thewhere.get('Id')
+                    if type(thevalue) is list:
+                        new_dict = list(filter(lambda x: x.get('Id') in thevalue and x.get('Id') not in new_dict, symptoms))
+                    else:
+                        new_dict = list(filter(lambda x: x.get('Id') == thevalue and x.get('Id') not in new_dict, symptoms))
+
+            if 'where' not in data:
+                new_dict = symptoms
+
+            if 'order' in data:
+
+                if type(theorder) is not str:
+                    raise TypeError(f"TypeError: <{theorder}> expected to be a string.")
+
+                if 'descending' in data:
+                    if type(thedescending) is not bool:
+                        raise TypeError(f"TypeError: <{thedescending}> expected to be a boolean.")
+                
+                    new_dict = sorted(new_dict, key=lambda i: i[theorder], reverse=True)
+
+                else:
+                    new_dict = sorted(new_dict, key=lambda i: i[theorder])
+            
+            if 'descending' in data:
+
+                if type(thedescending) is not bool:
+                    raise TypeError(f"TypeError: <{thedescending}> expected to be a boolean.")
+
+                if 'order' not in data:
+                    new_dict = sorted(new_dict, key=lambda i: i['Id'], reverse=True)
+
+            if 'limit' in data:
+
+                if type(thelimit) is not int:
+                    raise TypeError(f"TypeError: <{thelimit}> expected to be an integer.")
+                    
+                for index, el in enumerate(new_dict):
+                    if index == thelimit:
+                        break
+                    else:
+                        results.append(el)
+                
+                new_dict = results
+
+            # Return the results
+            return make_response(jsonify(new_dict), 200)
+        
         except TypeError as err:
             return make_response(jsonify({
-                "ErrorMessage": f"TypeError: {err}"
-            }), 400)
-    else:
-        
-        docs = docs.get()
-        for doc in docs:
-            results.append(doc.to_dict())
-        
-        results = sorted(results, key=itemgetter('Id'))
-
-        # Return the results
-        return jsonify(results)
+            "ErrorMessage": str(err)
+        }), 400)
+        except ValueError as err:
+            return make_response(jsonify({
+            "ErrorMessage": str(err)
+        }), 400)
 
 @app.route('/predict', methods = ['POST'])
 def predict():
@@ -272,7 +495,7 @@ def predict():
 
         # Retrieve all the symptoms data from firestore
         symptoms = []
-        docs = db.collection('symptoms').get()
+        docs = db.collection('symptoms').stream()
         for doc in docs:
             symptoms.append(doc.to_dict())
 
@@ -282,7 +505,7 @@ def predict():
 
         # Retrieve all the diseases data from firestore
         diseases = []
-        docs = db.collection('diseases').get()
+        docs = db.collection('diseases').stream()
         for doc in docs:
             diseases.append(doc.to_dict())
 

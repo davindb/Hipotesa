@@ -24,16 +24,16 @@
   <p align="center">
     An AI based healthcare system aims to help patients to detect their disease at an early stage to be able to identify the treatment plan early on and help them secure a good way to live.
     <br />
-    <a href="https://github.com/davindb/HipotesaProject#about-the-project"><strong>Let's Get Started »</strong></a>
+    <a href="https://github.com/davindb/Hipotesa#about-the-project"><strong>Let's Get Started »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/davindb/HipotesaProject/">View Demo</a>
+    <a href="https://github.com/davindb/Hipotesa/">View Demo</a>
     ·
     <a href="http://www.hipotesa.tech/">Our Website</a>
     ·
-    <a href="https://github.com/davindb/HipotesaProject/#contributing">Contribute</a>
+    <a href="https://github.com/davindb/Hipotesa/#contributing">Contribute</a>
     ·
-    <a href="https://github.com/davindb/HipotesaProject/issues">Report Bug</a>
+    <a href="https://github.com/davindb/Hipotesa/issues">Report Bug</a>
     
   </p>
 </p>
@@ -94,7 +94,7 @@ This is an overview of Hipotesa, what the prequisites are, how to download and u
 
 ### Prerequisites
 
-- Android 8.0 Oreo (API 26)
+- Android 5.0 Lollipop (API 21)
 - Internet Connection
 
 ### Installation
@@ -105,15 +105,15 @@ This is an overview of Hipotesa, what the prequisites are, how to download and u
 
 We provide open APIs for many developers to contribute or build some similar application. Follow the instructions in the **Hipotesa Open APIs Documentation** below.
 
-- [Open APIs Documentation](https://github.com/davindb/HipotesaDeveloper/#readme)
+- [Open APIs Documentation](https://github.com/davindb/Hipotesa/tree/main/Hipotesa%20APIs%20Documentation#readme)
 
 ### Project Repositories
 
 Check our project repositories to know more about Hipotesa.
 
 - [Hipotesa Application]()
-- [Hipotesa Algorithm](https://github.com/davindb/HipotesaAlgorithm)
-- [Hipotesa Rest API & Cloud Management](https://github.com/Guscah/HipotesaRestAPI)
+- [Hipotesa Algorithm](https://github.com/davindb/Hipotesa/tree/main/HipotesaAlgorithm#readme)
+- [Hipotesa Rest API & Cloud Management](https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement#readme)
 
 <!-- APPS OVERVIEW -->
 
@@ -163,7 +163,7 @@ _For more information, please refer to the [App Documentation]()_
 
 ## References
 
-We also provide you our journal references. For more information please refer to [this](https://github.com/davindb/HipotesaProject/tree/main/References).
+We also provide you our journal references. For more information please refer to [this](https://github.com/davindb/Hipotesa/tree/main/References).
 
 <!-- CONTRIBUTING -->
 
@@ -194,7 +194,7 @@ We are very grateful to all of those with whom we have had the pleasure to work 
     <img src="images/Bangkit.PNG" alt="Logo" width="50%" height="100%">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="#">
+  <a href="http://www.hipotesa.tech/">
     <img src="images/hipotesa.png" alt="Logo" width="22%" height="22%" >
   </a>
 </p>
@@ -228,11 +228,11 @@ Kreasi Anak Bangsa group © Copyright 2021 | All Rights Reserved.
 
 <!-- OTHERS -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/davindb/HipotesaProject.svg?style=for-the-badge
-[contributors-url]: https://github.com/davindb/HipotesaProject/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/davindb/HipotesaProject.svg?style=for-the-badge
-[forks-url]: https://github.com/davindb/HipotesaProject/network/members
-[stars-shield]: https://img.shields.io/github/stars/davindb/HipotesaProject.svg?style=for-the-badge
-[stars-url]: https://github.com/davindb/HipotesaProject/stargazers
-[issues-shield]: https://img.shields.io/github/issues/davindb/HipotesaProject.svg?style=for-the-badge
-[issues-url]: https://github.com/davindb/HipotesaProject/issues
+[contributors-shield]: https://img.shields.io/github/contributors/davindb/Hipotesa.svg?style=for-the-badge
+[contributors-url]: https://github.com/davindb/Hipotesa/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/davindb/Hipotesa.svg?style=for-the-badge
+[forks-url]: https://github.com/davindb/Hipotesa/network/members
+[stars-shield]: https://img.shields.io/github/stars/davindb/Hipotesa.svg?style=for-the-badge
+[stars-url]: https://github.com/davindb/Hipotesa/stargazers
+[issues-shield]: https://img.shields.io/github/issues/davindb/Hipotesa.svg?style=for-the-badge
+[issues-url]: https://github.com/davindb/Hipotesa/issues

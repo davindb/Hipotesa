@@ -75,6 +75,15 @@
         background-image: url("{{ url_for('static', filename='images/background5.jpg') }}");
       }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8N9EBR8DH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K8N9EBR8DH');
+    </script>
   </head>
   <body>
     <section class="menu menu1 cid-sg6MU58ixQ" once="menu" id="menu1-0">
@@ -334,7 +343,7 @@
               data-aos="fade-up"
               data-aos-offset="150"
             >
-              <a class="btn btn-md btn-white display-4" href="#">
+              <a class="btn btn-md btn-white display-4" href="https://github.com/davindb/Hipotesa/raw/main/hipotesa.apk">
                 <span
                   class="socicon socicon-play mbr-iconfont mbr-iconfont-btn"
                 ></span
@@ -398,13 +407,13 @@
               <a
                 class="btn btn-lg btn-success display-4"
                 target="_blank"
-                href="#"
+                href="https://github.com/davindb/Hipotesa/tree/main/Hipotesa%20APIs%20Documentation#readme"
                 >APIs Doc</a
               >
               <a
                 class="btn btn-lg btn-success display-4"
                 target="_blank"
-                href="https://github.com/davindb/HipotesaProject#readme"
+                href="https://github.com/davindb/Hipotesa#readme"
                 >GitHub &nbsp; <span class="socicon-github socicon"></span>
               </a>
             </div>
@@ -423,7 +432,8 @@
             <div class="mbr-section-btn mt-3">
               <a
                 class="btn btn-secondary btn-lg display-4"
-                href="https://github.com/davindb/HipotesaProject#team-members"
+                target="_blank"
+                href="https://github.com/davindb/Hipotesa#team-members"
                 >Contact Us</a
               >
             </div>
@@ -435,7 +445,7 @@
     <section class="team3 medicalm4_team3 cid-szuJTyb9dL" id="ourteam">
       <div class="container">
         <div class="top-info-wrap">
-          <a href="https://github.com/davindb/HipotesaProject#team-members">
+          <a target="_blank" href="https://github.com/davindb/Hipotesa#team-members">
             <h2
               class="
                 mbr-fonts-style mbr-section-title
@@ -577,7 +587,7 @@
     <script src="{{ url_for('static', filename='dropdown/js/navbar-dropdown.js') }}"></script>
     <script src="{{ url_for('static', filename='touchswipe/jquery.touch-swipe.min.js') }}"></script>
     <script src="{{ url_for('static', filename='parallax/jarallax.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='popper/theme/js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='theme/js/script.js') }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="{{ url_for('static', filename='local/script.js') }}"></script>
     <script>

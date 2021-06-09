@@ -24,16 +24,16 @@
   <p align="center">
     An AI based healthcare system aims to help patients to detect their disease at an early stage to be able to identify the treatment plan early on and help them secure a good way to live.
     <br />
-    <a href="https://github.com/davindb/HipotesaProject#readme"><strong>Go to the project »</strong></a>
+    <a href="https://github.com/davindb/Hipotesa#readme"><strong>Go to the project »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/davindb/HipotesaAlgorithm/">View Demo</a>
+    <a href="https://github.com/davindb/Hipotesa/">View Demo</a>
     ·
     <a href="http://www.hipotesa.tech/">Our Website</a>
     ·
-    <a href="https://github.com/davindb/HipotesaAlgorithm/#contributing">Contribute</a>
+    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaAlgorithm/#contributing">Contribute</a>
     ·
-     <a href="https://github.com/davindb/HipotesaAlgorithm/issues">Report Bug</a>
+     <a href="https://github.com/davindb/Hipotesa/issues">Report Bug</a>
   </p>
 </p>
 
@@ -109,9 +109,9 @@ We recommend you to install it on the linux machine (for windows user you are re
 
 1. Clone the repository
    ```sh
-   $ git clone https://github.com/davindb/HipotesaAlgorithm.git
+   $ git clone https://github.com/davindb/Hipotesa.git
    #change directory to the repository folder
-   $ cd HipotesaAlgorithm
+   $ cd Hipotesa/HipotesaAlgorithm
    ```
 2. Install required packages
    ```sh
@@ -176,9 +176,8 @@ Since we thought the model was already good enough, we decided to continue the p
 
 Check our other repositories to know more about Hipotesa.
 
-- [Hipotesa Project](https://github.com/davindb/HipotesaProject)
 - [Hipotesa Application]()
-- [Hipotesa Rest API & Cloud Management](https://github.com/Guscah/HipotesaRestAPI)
+- [Hipotesa Rest API & Cloud Management](https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement/#readme)
 
 <!-- TEAM MEMBERS -->
 

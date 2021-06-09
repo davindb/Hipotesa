@@ -24,16 +24,16 @@
   <p align="center">
     An AI based healthcare system aims to help patients to detect their disease at an early stage to be able to identify the treatment plan early on and help them secure a good way to live.
     <br />
-    <a href="https://github.com/davindb/HipotesaProject#readme"><strong>Go to the project »</strong></a>
+    <a href="https://github.com/davindb/Hipotesa#readme"><strong>Go to the project »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/davindb/HipotesaApplication/">View Demo</a>
+    <a href="https://github.com/davindb/Hipotesa">View Demo</a>
     ·
     <a href="http://www.hipotesa.tech">Our Website</a>
     ·
-    <a href="https://github.com/davindb/HipotesaDeveloper/#contributing">Contribute</a> 
+    <a href="https://github.com/davindb/Hipotesa/tree/main/Hipotesa%20APIs%20Documentation#contributing">Contribute</a> 
     ·
-    <a href="https://github.com/davindb/HipotesaDeveloper/issues">Report Bug</a>
+    <a href="https://github.com/davindb/Hipotesa/issues">Report Bug</a>
     
   </p>
 </p>
@@ -66,9 +66,19 @@ This is the complete guidance on how our APIs can be implemented to your machine
 
 Our APIs are open endpoints and require **no authentication**
 
+Preadict a disease:
+
 - [Predict](#disease-prediction) : `POST /api/predict/`
-- [Diseases List](#diseases-list) : `GET /api/diseases/`
-- [Symptoms List](#symptoms-list) : `GET /api/symptoms/`
+
+Read data:
+
+- [Diseases](#diseases-list) : `GET /api/diseases/`
+- [Symptoms](#symptoms-list) : `GET /api/symptoms/`
+
+Read data with specific queries:
+
+- [Diseases](#diseases-list-with-queries) : `POST /api/diseases/`
+- [Symptoms](#symptoms-list-with-queries) : `POST /api/symptoms/`
 
 ## Disease Prediction
 
@@ -224,7 +234,66 @@ These are the available properties to perform queries.
 - Id <value: int>
 - Symptom <value: str>
 
-`where` is to specify which field you want to retrieve.
+## Diseases List with Specific Queries
+
+Used to get the list of diseases.
+
+**URL** : `/api/diseases/`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+### Success Response
+
+**Code** : `200 OK`
+
+**Content example**
+
+```json
+[
+  {
+    "Description": "Hepatitis A is a highly contagious liver infection caused by the hepatitis A virus. The virus is one of several types of hepatitis viruses that cause inflammation and affect your liver's ability to function.",
+    "Disease": "hepatitis A",
+    "Id": 19,
+    "Precautions": [
+      "Consult nearest hospital",
+      "wash hands through",
+      "avoid fatty spicy food",
+      "medication"
+    ]
+  }
+]
+```
+
+## Symptoms List
+
+Used to get the list of symptoms.
+
+**URL** : `/api/symptoms/`
+
+**Method** : `POST`
+
+**Auth required** : NO
+
+### Success Response
+
+**Code** : `200 OK`
+
+**Content example**
+
+```json
+[
+  {
+    "Id": 25,
+    "Symptom": "continuous_sneezing"
+  }
+]
+```
+
+One of our open API features is that you are able to perform queries to get a specific data that you want.
+
+To specify which field you want to retrieve, you can perform a query parameter using `where`.
 
 **Data constraints**
 
@@ -262,7 +331,7 @@ You can also perform an `OR` condition using array as a type of the value.
 
 Then, you will retrieve any data that satisfied the values.
 
-`order` is for sorting your data based on the field you specified.
+To sort your data based on the field you specified, you can use `order`.
 
 **Data constraints**
 
@@ -293,7 +362,7 @@ If you want to sorted in a descending format, you can add `descending` field and
 }
 ```
 
-`limit` is like its name to limit the number of object you want to retrieve.
+`limit` is like its name which is to limit the number of object you want to retrieve.
 
 **Data constraints**
 
@@ -388,10 +457,10 @@ You can also combine all the parameter like the given example below.
 
 Check our project repositories to know more about Hipotesa.
 
-- [Hipotesa Project](https://github.com/davindb/HipotesaProject)
+- [Hipotesa Project](https://github.com/davindb/Hipotesa)
 - [Hipotesa Application]()
-- [Hipotesa Algorithm](https://github.com/davindb/HipotesaAlgorithm)
-- [Hipotesa Rest API & Cloud Management](https://github.com/Guscah/HipotesaRestAPI)
+- [Hipotesa Algorithm](https://github.com/davindb/Hipotesa/tree/main/HipotesaAlgorithm#readme)
+- [Hipotesa Rest API & Cloud Management](https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement/#readme)
 
 <!-- CONTRIBUTING -->
 
@@ -419,7 +488,7 @@ We are very grateful to all of those with whom we have had the pleasure to work 
     <img src="images/Bangkit.PNG" alt="Logo" width="50%" height="100%">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="#">
+  <a href="http://www.hipotesa.tech/">
     <img src="images/hipotesa.png" alt="Logo" width="22%" height="22%" >
   </a>
 </p>

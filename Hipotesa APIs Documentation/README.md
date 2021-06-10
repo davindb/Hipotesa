@@ -27,7 +27,7 @@
     <a href="https://github.com/davindb/Hipotesa#readme"><strong>Go to the project »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/davindb/Hipotesa">View Demo</a>
+    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme">View Demo</a>
     ·
     <a href="http://www.hipotesa.tech">Our Website</a>
     ·
@@ -458,7 +458,7 @@ You can also combine all the parameter like the given example below.
 Check our project repositories to know more about Hipotesa.
 
 - [Hipotesa Project](https://github.com/davindb/Hipotesa)
-- [Hipotesa Application]()
+- [Hipotesa Application](https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme)
 - [Hipotesa Algorithm](https://github.com/davindb/Hipotesa/tree/main/HipotesaAlgorithm#readme)
 - [Hipotesa Rest API & Cloud Management](https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement/#readme)
 

@@ -27,7 +27,7 @@
     <a href="https://github.com/davindb/Hipotesa#readme"><strong>Go to the project »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/davindb/Hipotesa/">View Demo</a>
+    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme">View Demo</a>
     ·
     <a href="http://www.hipotesa.tech/">Our Website</a>
     ·
@@ -176,7 +176,7 @@ Since we thought the model was already good enough, we decided to continue the p
 
 Check our other repositories to know more about Hipotesa.
 
-- [Hipotesa Application]()
+- [Hipotesa Application](https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme)
 - [Hipotesa Rest API & Cloud Management](https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement/#readme)
 
 <!-- TEAM MEMBERS -->

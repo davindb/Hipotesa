@@ -1,6 +1,6 @@
 <!--
-*** WELCOME TO HIPOTESA REST API AND CLOUD MANAGEMENT README
-*** Thanks for checking out the Hipotesa REST API and Cloud Management Readme. If you have a suggestion
+*** WELCOME TO HIPOTESA PROJECT
+*** Thanks for checking out the Hipotesa Project Readme. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
 *** or simply open an issue with the tag "enhancement".
 *** Thanks again! Now go create something AMAZING! :D
@@ -19,21 +19,21 @@
     <img src="images/hipotesa.png" alt="Logo" width="200" height="200">
   </a>
 
-  <h3 align="center">Hipotesa REST API and Cloud Management</h3>
+  <h3 align="center">Hipotesa Application</h3>
 
   <p align="center">
     An AI based healthcare system aims to help patients to detect their disease at an early stage to be able to identify the treatment plan early on and help them secure a good way to live.
     <br />
-    <a href="https://github.com/davindb/Hipotesa#readme"><strong>Go to the project »</strong></a>
+    <a href="https://github.com/davindb/Hipotesa/#readme"><strong>Go to the project »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme">View Demo</a>
+    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#results">View Demo</a>
     ·
     <a href="http://www.hipotesa.tech/">Our Website</a>
     ·
-    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement/#contributing">Contribute</a>
+    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#contributing">Contribute</a>
     ·
-    <a href="https://github.com/Guscah/Hipotesa/issues">Report Bug</a>
+     <a href="https://github.com/davindb/Hipotesa/issues">Report Bug</a>
   </p>
 </p>
 
@@ -44,22 +44,22 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#resources">Resources</a></li>
+        <li><a href="#built-tools">Built Tools</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#device-requirements">Device Requirements</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li><a href="#deployment">Deployment</a></li>
-          <li><a href="#open-apis">Open APIs</a></li>
-         <li><a href="#other-repositories">Other Repositories</a></li>
       </ul>
     </li>
-    <li><a href="#our-cloud-computing-engineer-team">Our Cloud Computing Engineer Team</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#other-repositories">Other Repositories</a></li>
+    <li><a href="#our-mobile-development-team">Our Mobile Development Team</a></li>
     <li><a href="#contributing">Contributing</a></li>
-      <li><a href="#license">License</a></li>
+    <li><a href="#license">License</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#copyright">Copyright</a></li>
   </ol>
@@ -75,64 +75,77 @@ In this project we create an **Android Native Mobile Application** with the reso
 
 <!-- RESOURCES -->
 
-### Resources
+### Built Tools
 
 - [Android Studio](https://developer.android.com/studio)
-- [Tensorflow](https://www.tensorflow.org/)
-- [Google Cloud Platform](https://cloud.google.com/)
-- [Google App Engine](https://cloud.google.com/appengine)
-- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
-- [Gunicorn](https://gunicorn.org/)
+- [Kotlin](https://kotlinlang.org/)
+- [Retrofit](https://square.github.io/retrofit/)
+- [Glide](https://www.tensorflow.org/decision_forests)
+- [Jetpack](https://developer.android.com/jetpack)
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-This is an overview of Hipotesa Cloud Architecture, what the prequisites are, how to download and use the app, open APIs guidance for developers, and more.
-
-<p align="center">
-    <img src="images/Cloud%20Configuration.png">
-</p>
+This is an overview of Hipotesa Application, what the prequisites are, how the Android application works, data visualization, model testing, and more.
 
 ### Prerequisites
 
-- Laptop / PC
-- Internet Connection
-- Python 3.6++
+- Android Studio 4.2.1
+
+### Device Requirements
+
+- Android 5.0 Lolipop (API 21)
 
 ### Installation
 
-To deploy an application on Google Cloud Platform, you don't need to install any software, just provide app.yaml, main.py and requirements.txt files.
+We recommend you to install it on Android devices or Android emulators with the device as mentioned above.
 
-### Deployment
+1. Download the APK file
+   ```sh
+   $ git clone https://github.com/davindb/Hipotesa.git
+   ```
+2. Install the APK file into Android devices or Android Emulator
+   ```sh
+   hipotesa.apk
+   ```
 
-For the REST API deployment on the Google Cloud Platform to be able to be accessed by android apps, we choose App Engine Service as a platform to deploy our REST API.
+## Results
 
-We use App Engine [Flexible Environment](https://github.com/davindb/Hipotesa/blob/main/HipotesaCloudManagement/AppEngine.md) as our deployment service (Main Option).
+The application have four activity inside including splash screen, home activity, main activity, and the prediction result activity. Below are shown activity in order.
 
-<b>Note:</b> You can't do the deployment using the App Engine Standard if the number of files are more than 10K and it will need more time for like more than 10 minutes to deploy.
+<p align="center" style="padding-top: 5px">
+  <a href="#images/open.jpeg">
+    <img src="images/open.jpeg" alt="Logo" width="20%" height="100%">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#images/menu.jpeg">
+    <img src="images/menu.jpeg" alt="Logo" width="20%" height="100%" >
+  </a>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#images/inputs.jpeg">
+    <img src="images/inputs.jpeg" alt="Logo" width="20%" height="100%" >
+  </a>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a href="#images/outputs.jpeg">
+    <img src="images/outputs.jpeg" alt="Logo" width="20%" height="100%" >
+  </a>
+</p>
 
-### Open APIs
-
-Please refer to the _Hipotesa Open APIs Documentation_ below for more information and guidance.
-
-- [Open APIs Documentation](https://github.com/davindb/Hipotesa/tree/main/Hipotesa%20APIs%20Documentation/#readme)
-
-### Other Repositories
+## Other Repositories
 
 Check our other repositories to know more about Hipotesa.
 
-- [Hipotesa Application](https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme)
 - [Hipotesa Algorithm](https://github.com/davindb/Hipotesa/tree/main/HipotesaAlgorithm/#readme)
+- [Hipotesa Rest API & Cloud Management](https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement/#readme)
 
 <!-- TEAM MEMBERS -->
 
-## Our Cloud Computing Engineer Team
+## Our Mobile Development Team
 
-|            Member            | Student ID |       Project Role       |                                                  Contacts                                                  |
-| :--------------------------: | :--------: | :----------------------: | :--------------------------------------------------------------------------------------------------------: |
-| Agus Cahya Ananda Yoga Putra |  C0121258  | Cloud Computing Engineer |   [![agus-linkedin][linkedin-shield]][agus-linkedin-url][![agus-github][github-shield]][agus-github-url]   |
-|      Fadia Fatta Dylla       |  C0121262  | Cloud Computing Engineer | [![fadia-linkedin][linkedin-shield]][fadia-linkedin-url][![fadia-github][github-shield]][fadia-github-url] |
+|          Member          | Student ID |   Project Role   |                                                  Contacts                                                  |
+| :----------------------: | :--------: | :--------------: | :--------------------------------------------------------------------------------------------------------: |
+| Ravedya Aufa Amaranggana |  A0111155  | Mobile Developer | [![raved-linkedin][linkedin-shield]][raved-linkedin-url][![raved-github][github-shield]][raved-github-url] |
 
 <!-- CONTRIBUTING -->
 
@@ -197,11 +210,11 @@ Kreasi Anak Bangsa group © Copyright 2021 | All Rights Reserved.
 
 <!-- OTHERS -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/davindb/Hipotesa.svg?style=for-the-badge
-[contributors-url]: https://github.com/davindb/Hipotesa/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/davindb/Hipotesa.svg?style=for-the-badge
-[forks-url]: https://github.com/davindb/Hipotesa/network/members
-[stars-shield]: https://img.shields.io/github/stars/davindb/Hipotesa.svg?style=for-the-badge
-[stars-url]: https://github.com/davindb/Hipotesa/stargazers
-[issues-shield]: https://img.shields.io/github/issues/davindb/Hipotesa.svg?style=for-the-badge
-[issues-url]: https://github.com/davindb/Hipotesa/issues
+[contributors-shield]: https://img.shields.io/github/contributors/davindb/HipotesaAlgorithm.svg?style=for-the-badge
+[contributors-url]: https://github.com/davindb/HipotesaAlgorithm/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/davindb/HipotesaAlgorithm.svg?style=for-the-badge
+[forks-url]: https://github.com/davindb/HipotesaAlgorithm/network/members
+[stars-shield]: https://img.shields.io/github/stars/davindb/HipotesaAlgorithm.svg?style=for-the-badge
+[stars-url]: https://github.com/davindb/HipotesaAlgorithm/stargazers
+[issues-shield]: https://img.shields.io/github/issues/davindb/HipotesaAlgorithm.svg?style=for-the-badge
+[issues-url]: https://github.com/davindb/HipotesaAlgorithm/issues

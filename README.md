@@ -27,7 +27,7 @@
     <a href="https://github.com/davindb/Hipotesa#about-the-project"><strong>Let's Get Started »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/davindb/Hipotesa/">View Demo</a>
+    <a href="https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme">View Demo</a>
     ·
     <a href="http://www.hipotesa.tech/">Our Website</a>
     ·
@@ -111,7 +111,7 @@ We provide open APIs for many developers to contribute or build some similar app
 
 Check our project repositories to know more about Hipotesa.
 
-- [Hipotesa Application]()
+- [Hipotesa Application](https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme)
 - [Hipotesa Algorithm](https://github.com/davindb/Hipotesa/tree/main/HipotesaAlgorithm#readme)
 - [Hipotesa Rest API & Cloud Management](https://github.com/davindb/Hipotesa/tree/main/HipotesaCloudManagement#readme)
 
@@ -145,7 +145,7 @@ Check our project repositories to know more about Hipotesa.
 2. Risk information about the contracted disease on the patient.
 3. Treatment plan that patient could follow.
 
-_For more information, please refer to the [App Documentation]()_
+_For more information, please refer to the [App Documentation](https://github.com/davindb/Hipotesa/tree/main/HipotesaApplication/#readme)_
 
 <!-- TEAM MEMBERS -->
 
